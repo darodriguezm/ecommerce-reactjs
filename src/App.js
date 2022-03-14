@@ -3,7 +3,7 @@ import HeaderNavbar from './components/HeaderNavBar';
 
 function App() {
   return (
-    <HeaderNavbar></HeaderNavbar>
+      <HeaderNavbar></HeaderNavbar>
   );
 }
 
