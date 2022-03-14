@@ -23,7 +23,7 @@ const HeaderNavbar = () => {
         position: 'fixed',
         top: 0,
         width: '100%',
-        backgroundColor: "rgba(150,150,150, 0.2)",
+        backgroundColor: "rgb(200,200,200)",
         justifyContent: 'space-between',
         paddingTop: 2,
         boxShadow: 3
@@ -87,7 +87,7 @@ const HeaderNavbar = () => {
                         <SearchIcon />
                     </SearchIconWrapper>
                     <StyledInputBase
-                        placeholder="Search…"
+                        placeholder="Buscar..."
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
