@@ -13,7 +13,6 @@ const HeaderNavbar = () => {
 
     const menuItems = ["Productos", "Ofertas", "Marcas", "Segunda selección"];
 
-    const marginRight_2 = { marginRight: 2 };
     const buttonStyle = { marginLeft: 2, color: 'rgb(140,140,140)' };
 
     const principalBoxStyle = {
@@ -74,15 +73,15 @@ const HeaderNavbar = () => {
 
     return (
         <Box component="div" sx={principalBoxStyle}>
-            <Box sx={{ flexGrow: 1, display: 'flex' }}>
+            <Box component="ul" sx={{ flexGrow: 1, display: 'flex' }}>
                 {
                     menuItems.map((item) => {
-                        return <Button className="Button" variant="text" sx={buttonStyle}>{item}</Button>
+                        return <Button component="li" className="Button" variant="text" sx={buttonStyle}>{item}</Button>
                     })
                 }
             </Box>
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'end' }}>
-                <Search sx={marginRight_2}>
+                <Search className="MarginRight_2">
                     <SearchIconWrapper>
                         <SearchIcon />
                     </SearchIconWrapper>
@@ -91,10 +90,10 @@ const HeaderNavbar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
-                <Badge badgeContent={4} color="primary" sx={marginRight_2}>
+                <Badge badgeContent={4} color="primary" className="MarginRight_2">
                     <AddShoppingCart color="action" />
                 </Badge>
-                <Badge badgeContent={4} color="primary" sx={marginRight_2}>
+                <Badge badgeContent={4} color="primary" className="MarginRight_2">
                     <AccountCircle />
                 </Badge>
             </Box>
