@@ -7,13 +7,10 @@ import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import '../css/navBar.css';
 
 const HeaderNavbar = () => {
 
     const menuItems = ["Productos", "Ofertas", "Marcas", "Segunda selección"];
-
-    const buttonStyle = { marginLeft: 2, color: 'rgb(140,140,140)' };
 
     const principalBoxStyle = {
         flexGrow: 1,
@@ -24,9 +21,15 @@ const HeaderNavbar = () => {
         width: '100%',
         backgroundColor: "rgb(200,200,200)",
         justifyContent: 'space-between',
-        paddingTop: 2,
-        boxShadow: 3
+        boxShadow: 3,
+        paddingTop: 1,
+        paddingBottom: 1
     };
+
+    const BadgeWrapper = styled('div')(({ theme }) => ({
+        marginRight: '1rem',
+        marginTop: '10px'
+    }))
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -36,6 +39,7 @@ const HeaderNavbar = () => {
             backgroundColor: alpha(theme.palette.common.white, 0.25),
         },
         marginLeft: 0,
+        marginRight: '1rem',
         width: '100%',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(1),
@@ -72,16 +76,25 @@ const HeaderNavbar = () => {
 
 
     return (
-        <Box component="div" sx={principalBoxStyle}>
-            <Box component="ul" sx={{ flexGrow: 1, display: 'flex' }}>
+        <Box component="header" sx={principalBoxStyle}>
+            <Box component="ul" sx={{ flexGrow: 1, display: 'flex', margin: 0, padding: 0 }}>
                 {
-                    menuItems.map((item) => {
-                        return <Button component="li" className="Button" variant="text" sx={buttonStyle}>{item}</Button>
+                    menuItems.map((item, index) => {
+                        return <Button component="li" variant="text" key={index} sx={
+                            {
+                                marginLeft: 2,
+                                color: 'rgb(140,140,140)',
+                                '&:hover': {
+                                    backgroundColor: '#000',//'rgba(215,215,215,0.5)',
+                                    color: '#fff',
+                                }
+                            }
+                        }>{item}</Button>
                     })
                 }
             </Box>
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'end' }}>
-                <Search className="MarginRight_2">
+                <Search>
                     <SearchIconWrapper>
                         <SearchIcon />
                     </SearchIconWrapper>
@@ -90,12 +103,16 @@ const HeaderNavbar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
-                <Badge badgeContent={4} color="primary" className="MarginRight_2">
-                    <AddShoppingCart color="action" />
-                </Badge>
-                <Badge badgeContent={4} color="primary" className="MarginRight_2">
-                    <AccountCircle />
-                </Badge>
+                <BadgeWrapper>
+                    <Badge badgeContent={4} color="primary">
+                        <AddShoppingCart color="action" />
+                    </Badge>
+                </BadgeWrapper>
+                <BadgeWrapper>
+                    <Badge badgeContent={4} color="primary">
+                        <AccountCircle />
+                    </Badge>
+                </BadgeWrapper>
             </Box>
         </Box>
     );
