@@ -3,10 +3,10 @@ import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Badge from '@mui/material/Badge';
-import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import CartWidget from '../CartWidget/CartWidget';
 
 const HeaderNavbar = () => {
 
@@ -19,17 +19,13 @@ const HeaderNavbar = () => {
         position: 'fixed',
         top: 0,
         width: '100%',
-        backgroundColor: "rgb(200,200,200)",
+        backgroundColor: "rgba(200,200,200, 1)",
         justifyContent: 'space-between',
         boxShadow: 3,
         paddingTop: 1,
-        paddingBottom: 1
+        paddingBottom: 1,
+        zIndex: 10
     };
-
-    const BadgeWrapper = styled('div')(({ theme }) => ({
-        marginRight: '1rem',
-        marginTop: '10px'
-    }))
 
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -85,7 +81,7 @@ const HeaderNavbar = () => {
                                 marginLeft: 2,
                                 color: 'rgb(140,140,140)',
                                 '&:hover': {
-                                    backgroundColor: '#000',//'rgba(215,215,215,0.5)',
+                                    backgroundColor: '#000',
                                     color: '#fff',
                                 }
                             }
@@ -103,16 +99,10 @@ const HeaderNavbar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
-                <BadgeWrapper>
-                    <Badge badgeContent={4} color="primary">
-                        <AddShoppingCart color="action" />
-                    </Badge>
-                </BadgeWrapper>
-                <BadgeWrapper>
-                    <Badge badgeContent={4} color="primary">
-                        <AccountCircle />
-                    </Badge>
-                </BadgeWrapper>
+                <CartWidget badgeContent={2} />
+                <Badge badgeContent={4} color="primary" sx={{ marginRight: '1rem', marginTop: '10px' }}>
+                    <AccountCircle />
+                </Badge>
             </Box>
         </Box>
     );
