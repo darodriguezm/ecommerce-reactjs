@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Tooltip from '@mui/material/Tooltip';
-import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 export default function CartWidget(props) {
     const { badgeContent } = props;
@@ -13,9 +13,9 @@ export default function CartWidget(props) {
     }))
 
     return (
-        <Tooltip title="Carrito" arrow>
+        <Tooltip title="Perfil" arrow>
             <StyledBadge badgeContent={badgeContent} color="primary">
-                <AddShoppingCart color="action" />
+                <AccountCircle />
             </StyledBadge>
         </Tooltip>
     )

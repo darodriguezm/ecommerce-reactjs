@@ -2,11 +2,10 @@ import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Badge from '@mui/material/Badge';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import CartWidget from '../CartWidget/CartWidget';
+import ProfileWidget from '../ProfileWidget/ProfileWidget';
 
 const HeaderNavbar = () => {
 
@@ -24,7 +23,7 @@ const HeaderNavbar = () => {
         boxShadow: 3,
         paddingTop: 1,
         paddingBottom: 1,
-        zIndex: 10
+        zIndex: 1
     };
 
     const Search = styled('div')(({ theme }) => ({
@@ -100,9 +99,7 @@ const HeaderNavbar = () => {
                     />
                 </Search>
                 <CartWidget badgeContent={2} />
-                <Badge badgeContent={4} color="primary" sx={{ marginRight: '1rem', marginTop: '10px' }}>
-                    <AccountCircle />
-                </Badge>
+                <ProfileWidget badgeContent={4} />
             </Box>
         </Box>
     );
