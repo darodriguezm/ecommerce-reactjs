@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,7 +8,7 @@ import CartWidget from '../CartWidget/CartWidget';
 import ProfileWidget from '../ProfileWidget/ProfileWidget';
 
 const HeaderNavbar = () => {
-
+    const [actualScrollY, setActualScrollY] = useState()
     const menuItems = ["Productos", "Ofertas", "Marcas", "Segunda selección"];
 
     const principalBoxStyle = {
@@ -23,7 +23,8 @@ const HeaderNavbar = () => {
         boxShadow: 3,
         paddingTop: 1,
         paddingBottom: 1,
-        zIndex: 1
+        zIndex: 1,
+        opacity: actualScrollY > 0 ? 0.8 : 1
     };
 
     const Search = styled('div')(({ theme }) => ({
@@ -69,6 +70,12 @@ const HeaderNavbar = () => {
         justifyContent: 'center',
     }));
 
+    const scrollHandler = () => setActualScrollY(window.scrollY)
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollHandler, true)
+
+    }, []);
 
     return (
         <Box component="header" sx={principalBoxStyle}>
@@ -101,7 +108,7 @@ const HeaderNavbar = () => {
                 <CartWidget badgeContent={2} />
                 <ProfileWidget badgeContent={4} />
             </Box>
-        </Box>
+        </Box >
     );
 }
 

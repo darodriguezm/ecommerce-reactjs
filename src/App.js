@@ -1,5 +1,4 @@
 import './App.css';
-import { useEffect } from 'react';
 import HeaderNavbar from './components/HeaderNavBar/HeaderNavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemCount from './components/ItemCount/ItemCount';
@@ -23,19 +22,6 @@ function App() {
       onAdd: onAdd
     }
   ]
-
-  const scrollHandler = (e) => {
-    if (window.scrollY > 0){
-      
-    } else {
-      
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler, true)
-
-  }, []);
 
   return (
     <>
