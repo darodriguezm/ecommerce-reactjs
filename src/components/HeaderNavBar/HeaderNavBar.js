@@ -18,13 +18,14 @@ const HeaderNavbar = () => {
         position: 'fixed',
         top: 0,
         width: '100%',
-        backgroundColor: "rgba(200,200,200, 1)",
+        backgroundColor: "rgb(200,200,200)",
         justifyContent: 'space-between',
         boxShadow: 3,
         paddingTop: 1,
         paddingBottom: 1,
         zIndex: 1,
-        opacity: actualScrollY > 0 ? 0.8 : 1
+        opacity: actualScrollY > 0 ? 0.8 : 1,
+        transition: 'opacity 0.5s'
     };
 
     const Search = styled('div')(({ theme }) => ({
@@ -70,9 +71,9 @@ const HeaderNavbar = () => {
         justifyContent: 'center',
     }));
 
-    const scrollHandler = () => setActualScrollY(window.scrollY)
-
     useEffect(() => {
+        const scrollHandler = () => setActualScrollY(window.scrollY)
+
         window.addEventListener('scroll', scrollHandler, true)
 
     }, []);
