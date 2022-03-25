@@ -1,38 +1,19 @@
 import './App.css';
 import HeaderNavbar from './components/HeaderNavBar/HeaderNavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemCount from './components/ItemCount/ItemCount';
+// import ItemCount from './components/ItemCount/ItemCount';
 import topImage from './assets/img/topImage.png';
+import ItemList from './components/ItemList/ItemList';
+
 
 function App() {
 
-  const onAdd = (quantity, description) => {
-    alert(`Se han agregado ${quantity} artículos\n${description}`)
-  }
-
-  const itemsData = [
-    {
-      itemDescription: "Artículo sin stock",
-      itemLimit: 0,
-      onAdd: onAdd
-    },
-    {
-      itemDescription: "Artículo con stock = 4",
-      itemLimit: 4,
-      onAdd: onAdd
-    }
-  ]
-
   return (
     <>
-      <HeaderNavbar></HeaderNavbar>
+      <HeaderNavbar />
       <img src={topImage} width='100%' alt='' />
-      <ItemListContainer greeting="Mensaje de componente ItemListContainer">
-        {
-          itemsData.map((itemData, index) => {
-            return <ItemCount itemData={itemData} key={index} />
-          })
-        }
+      <ItemListContainer greeting="Lista de productos">
+        <ItemList />
       </ItemListContainer>
     </>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 const ItemListContainer = ({ greeting, children }) => {
 
@@ -8,24 +9,18 @@ const ItemListContainer = ({ greeting, children }) => {
         flexGrow: 1,
         flexDirection: 'row',
         flexWrap: 'wrap',
-        // position: 'relative',
-        // top: 50,
-        backgroundImage: 'linear-gradient(to left, #bbd16b, #8cd68b, #60d5af, #45d1ce, #54cae2, #5ecbe8, #69ccee, #74cdf3, #66d9f8, #5be5fa, #57f0f7, #5ffbf1)',
+        background: 'linear-gradient(90deg, rgba(223,236,238,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,1) 83%, rgba(223,236,238,1) 100%);',
         justifyContent: 'center',
-        color: '#aaffff',
+        color: '#000',
         boxSizing: 'content-box',
         paddingBottom: 5
     }))
 
-    const H1Styled = styled('h1')(({ template }) => ({
-        width: '100%',
-        display: 'inline-block',
-        textAlign: 'center'
-    }))
-
     return (
         <InternalContainer>
-            <H1Styled>{greeting}</H1Styled>
+            <Typography variant="h3" component="div" sx={{ width: '100%', display: 'inline-block', textAlign: 'center' }} gutterBottom>
+                {greeting}
+            </Typography>
             {children}
         </InternalContainer>
     )
