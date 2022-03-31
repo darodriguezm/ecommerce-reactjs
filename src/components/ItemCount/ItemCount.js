@@ -3,8 +3,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-export default function ItemCount({ itemData }) {
-    const { itemDescription, itemLimit, onAdd } = itemData;
+export default function ItemCount(props) {
+    const { itemDescription, itemLimit, onAdd } = props;
 
     const [count, setCount] = useState(itemLimit > 0 ? 1 : 0);
 
@@ -34,7 +34,7 @@ export default function ItemCount({ itemData }) {
         border: '1px solid #99f',
         boxSizing: 'border-box',
         padding: 3,
-        width: 250,
+        // width: 250,
         background: '#FFF',
         color: '#000',
         fontSize: '12px',

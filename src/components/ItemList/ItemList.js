@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
-import mockData from './products.json';
+import mockData from '../../assets/data/products.json';
 
 const Itemlist = () => {
     const [products, setProducts] = useState([]);
@@ -21,7 +21,7 @@ const Itemlist = () => {
     }, []);
 
     return (
-        <Box sx={{ display: 'flex'}}>
+        <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             {
                 products.map((product) => {
                     return <Item product={product} key={product.id}></Item>

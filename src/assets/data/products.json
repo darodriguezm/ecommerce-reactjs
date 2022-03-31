@@ -7,6 +7,7 @@
             "Las castañas de cajú son fuente de vitaminas, minerales, antioxidantes, fibra y otros elementos que promueven la buena salud."
         ],
         "stock": 5,
+        "categoria": "frutos",
         "gramaje": "1Kg, 500grs",
         "precio": 11400,
         "imagenMini": "./assets/img/productos/CAS02-VAR_mini.jpg",
@@ -20,9 +21,10 @@
         "id": "AVE040500",
         "nombre": "Avellanas Europeas Tostadas",
         "descripcion": [
-            "Avellana europea  natural, 100 gr, de sabor levemente ahumado. Son ricas en proteínas, en ácidos beneficiosos para el organismo, fibra, ácido fólico, minerales como calcio, fósforo, magnesio y potasio. Además se le adjudican propiedades anticancerígenas. En invierno sus calorías ‘buenas’ se agradecen como alternativa a otros alimentos con menos aportes a la salud. Las semillas naturales contienen aproximadamente 12% de proteína, 49% de aceite y 24% de carbohidratos."
+            "Avellana europea  natural, 100 gr, de sabor levemente ahumado. Son ricas en proteínas, en ácidos beneficiosos para el organismo, fibra, ácido fólico, minerales como calcio, fósforo, magnesio y potasio. Además se le adjudican propiedades anticancerígenas. En invierno sus calorías ‘buenas’ se agradecen como alternativa a otros alimentos con menos aportes a la salud. Las frutos naturales contienen aproximadamente 12% de proteína, 49% de aceite y 24% de carbohidratos."
         ],
         "stock": 10,
+        "categoria": "frutos",
         "gramaje": "500grs",
         "precio": 9738,
         "imagenMini": "./assets/img/productos/AVE040500_mini.jpg",
@@ -39,6 +41,7 @@
             "Tradicional Maní Tostado Sin Sal, irresistible para consumir a cualquier hora"
         ],
         "stock": 20,
+        "categoria": "frutos",
         "gramaje": "1Kg, 500grs",
         "precio": 1450,
         "imagenMini": "./assets/img/productos/MAN02-VAR_mini.jpg",

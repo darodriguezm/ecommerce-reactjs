@@ -6,10 +6,28 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import CartWidget from '../CartWidget/CartWidget';
 import ProfileWidget from '../ProfileWidget/ProfileWidget';
+import { Link } from 'react-router-dom';
 
 const HeaderNavbar = () => {
     const [actualScrollY, setActualScrollY] = useState()
-    const menuItems = ["Productos", "Ofertas", "Marcas", "Segunda selección"];
+    const menuItems = [
+        {
+            caption: "Productos",
+            route: "/"
+        }
+        , {
+            caption: "Ofertas",
+            route: "/ofertas"
+        }
+        , {
+            caption: "Marcas",
+            route: "/marcas"
+        },
+        {
+            caption: "Segunda selección",
+            route: "/segundaseleccion"
+        }
+    ];
 
     const principalBoxStyle = {
         flexGrow: 1,
@@ -71,6 +89,10 @@ const HeaderNavbar = () => {
         justifyContent: 'center',
     }));
 
+    const LinkStyled = styled(Link)(({ theme }) => ({
+        textDecoration: 'none',
+    }));
+
     useEffect(() => {
         const scrollHandler = () => setActualScrollY(window.scrollY)
 
@@ -83,16 +105,18 @@ const HeaderNavbar = () => {
             <Box component="ul" sx={{ flexGrow: 1, display: 'flex', margin: 0, padding: 0 }}>
                 {
                     menuItems.map((item, index) => {
-                        return <Button component="li" variant="text" key={index} sx={
-                            {
-                                marginLeft: 2,
-                                color: 'rgb(140,140,140)',
-                                '&:hover': {
-                                    backgroundColor: '#000',
-                                    color: '#fff',
+                        return <LinkStyled to={item.route} key={index}>
+                            <Button component="li" variant="text" sx={
+                                {
+                                    marginLeft: 2,
+                                    color: 'rgb(140,140,140)',
+                                    '&:hover': {
+                                        backgroundColor: '#000',
+                                        color: '#fff',
+                                    }
                                 }
-                            }
-                        }>{item}</Button>
+                            }>{item.caption}</Button>
+                        </LinkStyled>
                     })
                 }
             </Box>
