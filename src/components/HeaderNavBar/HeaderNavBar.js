@@ -7,6 +7,7 @@ import InputBase from '@mui/material/InputBase';
 import CartWidget from '../CartWidget/CartWidget';
 import ProfileWidget from '../ProfileWidget/ProfileWidget';
 import { Link } from 'react-router-dom';
+import CustomizedMenus from '../CustomizedCategorysMenu/CustomizedCategorysMenu';
 
 const HeaderNavbar = () => {
     const [actualScrollY, setActualScrollY] = useState()
@@ -19,10 +20,7 @@ const HeaderNavbar = () => {
             caption: "Ofertas",
             route: "/ofertas"
         }
-        , {
-            caption: "Marcas",
-            route: "/marcas"
-        },
+        ,
         {
             caption: "Segunda selección",
             route: "/segundaseleccion"
@@ -119,6 +117,9 @@ const HeaderNavbar = () => {
                         </LinkStyled>
                     })
                 }
+                <li style={{ listStyle: 'none'}}>
+                    <CustomizedMenus />
+                </li>
             </Box>
             <Box sx={{ flexGrow: 1, display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'end' }}>
                 <Search>

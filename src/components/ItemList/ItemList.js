@@ -1,24 +1,8 @@
 import { Box } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Item from '../Item/Item';
-import mockData from '../../assets/data/products.json';
 
-const Itemlist = () => {
-    const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        const getData = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    return resolve(mockData);
-                }, 2000);
-            });
-        };
-
-        getData()
-            .then((data) => setProducts(data))
-            .catch((error) => console.error(error));
-    }, []);
+const Itemlist = ({ products }) => {
 
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>

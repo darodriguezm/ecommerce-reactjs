@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import mockData from '../../assets/data/product.json';
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import mockData from '../../assets/data/products.json';
 
 function ItemDetailContainer() {
     const [item, setItem] = useState({});
     const [empty, setEmpty] = useState(true);
+    const {id} = useParams();
 
     useEffect(() => {
-        const getItem = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    return resolve(mockData);
-                }, 2000);
-            });
-        };
+        setItem(mockData.find( (data) => {
+            return data.id === id;
+        }));
 
-        getItem()
-            .then((data) => {
-                setItem(data);
-                setEmpty(false);
-            }).catch((error) => console.error(error));
-    }, []);
+        setEmpty(false);
 
+    }, [id])
+    
     return (
         !empty && <ItemDetail item={item} />
     )

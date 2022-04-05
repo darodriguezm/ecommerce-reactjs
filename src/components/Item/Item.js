@@ -1,12 +1,11 @@
 import { Button, Container } from '@mui/material';
 import { styled } from '@mui/styles';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Item = ({ product }) => {
     const { nombre, precio, imagenMini, stock } = product;
-    const [visible, setVisible] = useState(false);
 
     const ContainerStyled = styled(Container)((theme) => ({
         backgroundColor: 'white',
@@ -18,10 +17,6 @@ const Item = ({ product }) => {
         width: '300px'
     }));
 
-    const changeVisibility = () => {
-        setVisible(!visible);
-    }
-
     return (
         <>
             <ContainerStyled>
@@ -32,17 +27,11 @@ const Item = ({ product }) => {
                 <p>Precio: {precio}</p>
                 <p>stock: {stock}</p>
                 <Box sx={{ textAlign: 'center' }}>
-                    <Button variant="outlined" onClick={changeVisibility}>Ver detalles</Button>
+                    <Link to={`/item/${product.id}`} >
+                        <Button variant="outlined">Ver detalles</Button>
+                    </Link>
                 </Box>
             </ContainerStyled>
-            {
-                visible ?
-                    <div>
-                        <ItemDetailContainer></ItemDetailContainer>
-                    </div>
-                    : ""
-            }
-
         </>
     );
 }

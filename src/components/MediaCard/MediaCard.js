@@ -7,7 +7,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
 
-
 export default function MediaCard({ item }) {
   const { nombre, imagenesLg, descripcion, precio, onAdd } = item;
 

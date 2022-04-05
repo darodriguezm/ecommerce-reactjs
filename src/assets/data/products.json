@@ -10,11 +10,11 @@
         "categoria": "frutos",
         "gramaje": "1Kg, 500grs",
         "precio": 11400,
-        "imagenMini": "./assets/img/productos/CAS02-VAR_mini.jpg",
+        "imagenMini": "/assets/img/productos/CAS02-VAR_mini.jpg",
         "imagenesLg": [
-            "./assets/img/productos/CAS02-VAR_lg1.jpg",
-            "./assets/img/productos/CAS02-VAR_lg2.jpg",
-            "./assets/img/productos/CAS02-VAR_lg3.jpg"
+            "/assets/img/productos/CAS02-VAR_lg1.jpg",
+            "/assets/img/productos/CAS02-VAR_lg2.jpg",
+            "/assets/img/productos/CAS02-VAR_lg3.jpg"
         ]
     },
     {
@@ -27,11 +27,11 @@
         "categoria": "frutos",
         "gramaje": "500grs",
         "precio": 9738,
-        "imagenMini": "./assets/img/productos/AVE040500_mini.jpg",
+        "imagenMini": "/assets/img/productos/AVE040500_mini.jpg",
         "imagenesLg": [
-            "./assets/img/productos/AVE040500_lg1.jpg",
-            "./assets/img/productos/AVE040500_lg2.jpg",
-            "./assets/img/productos/AVE040500_lg3.jpg"
+            "/assets/img/productos/AVE040500_lg1.jpg",
+            "/assets/img/productos/AVE040500_lg2.jpg",
+            "/assets/img/productos/AVE040500_lg3.jpg"
         ]
     },
     {
@@ -44,11 +44,26 @@
         "categoria": "frutos",
         "gramaje": "1Kg, 500grs",
         "precio": 1450,
-        "imagenMini": "./assets/img/productos/MAN02-VAR_mini.jpg",
+        "imagenMini": "/assets/img/productos/MAN02-VAR_mini.jpg",
         "imagenesLg": [
-            "./assets/img/productos/MAN02-VAR_lg1.jpg",
-            "./assets/img/productos/MAN02-VAR_lg2.jpg",
-            "./assets/img/productos/MAN02-VAR_lg3.jpg"
+            "/assets/img/productos/MAN02-VAR_lg1.jpg",
+            "/assets/img/productos/MAN02-VAR_lg2.jpg",
+            "/assets/img/productos/MAN02-VAR_lg3.jpg"
+        ]
+    },
+    {
+        "id": "ZAP002-VAR",
+        "nombre": "Semilla de zapallo",
+        "descripcion": [
+            "La semilla de zapallo previene infeccione y es desparasitante, ayuda a llevar la menopausia y los problemas de próstata, fortalece los dientes y huesos, y ha sido un excelente ayudante como antidepresivo."
+        ],
+        "stock": 20,
+        "categoria": "semillas",
+        "gramaje": "250gms, 500grs, 1Kg, 5Kg",
+        "precio": 7000,
+        "imagenMini": "/assets/img/productos/ZAP002_mini.jpg",
+        "imagenesLg": [
+            "/assets/img/productos/ZAP002_lg1.jpg"
         ]
     }
 ]

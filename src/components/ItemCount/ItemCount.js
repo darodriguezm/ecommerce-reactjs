@@ -31,14 +31,14 @@ export default function ItemCount(props) {
         flexGrow: 1,
         flexDirection: 'column',
         flexWrap: 'wrap',
-        border: '1px solid #99f',
+        // border: '1px solid #99f',
         boxSizing: 'border-box',
         padding: 3,
         // width: 250,
         background: '#FFF',
         color: '#000',
         fontSize: '12px',
-        boxShadow: '2px 2px 5px 1px rgba(0,0,0,0.36)',
+        //boxShadow: '2px 2px 5px 1px rgba(0,0,0,0.36)',
         margin: 3
     }))
 
