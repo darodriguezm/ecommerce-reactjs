@@ -93,13 +93,13 @@ export default function CustomizedMenus() {
             >
                 <Link to="/category/frutos">
                     <MenuItem onClick={handleClose} disableRipple>
-                        <EggIcon />
+                        {/* <EggIcon /> */}
                         Frutos secos
                     </MenuItem>
                 </Link>
                 <Link to="/category/semillas">
                     <MenuItem onClick={handleClose} disableRipple>
-                        <EggIcon />
+                        {/* <EggIcon /> */}
                         Semillas
                     </MenuItem>
                 </Link>

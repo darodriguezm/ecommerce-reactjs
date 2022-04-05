@@ -39,7 +39,7 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <FlexColumn>
             <Typography variant="h3" component="div" sx={{ width: '100%', display: 'inline-block', textAlign: 'center' }} gutterBottom>
-                {greeting}
+                {greeting + ' ' + (id ? id : '') }
             </Typography>
             <InternalContainer>
                 <ItemList products={products} />
