@@ -5,12 +5,16 @@ import FlexColumn from '../FlexColumn/FlexColumn';
 import mockData from '../../assets/data/products.json';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
+    const [loaded, setLoaded] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
+        setLoaded(false);
+
         const getData = () => {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
@@ -21,7 +25,8 @@ const ItemListContainer = ({ greeting }) => {
 
         getData()
             .then((response) => {
-                setProducts(id ? response.filter( data => data.categoria === id) : response);
+                setProducts(id ? response.filter(data => data.categoria === id) : response);
+                setLoaded(true);
             })
             .catch((error) => console.error(error));
 
@@ -38,11 +43,15 @@ const ItemListContainer = ({ greeting }) => {
 
     return (
         <FlexColumn>
-            <Typography variant="h3" component="div" sx={{ width: '100%', display: 'inline-block', textAlign: 'center' }} gutterBottom>
-                {greeting + ' ' + (id ? id : '') }
+            <Typography variant="h4" component="div" sx={{ width: '100%', display: 'inline-block', textAlign: 'center' }} gutterBottom>
+                {greeting + ' ' + (id ? id : '')}
             </Typography>
             <InternalContainer>
-                <ItemList products={products} />
+                {
+                    loaded ?
+                        <ItemList products={products} /> :
+                        <CircularProgress />
+                }
             </InternalContainer>
         </FlexColumn>
 

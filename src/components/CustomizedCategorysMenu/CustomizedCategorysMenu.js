@@ -48,6 +48,11 @@ const StyledMenu = styled((props) => (
     },
 }));
 
+const LinkStyled = styled(Link)(({ theme }) => ({
+    textDecoration: 'none',
+    color: 'rgb(50,50,50);'
+}));
+
 export default function CustomizedMenus() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -91,18 +96,18 @@ export default function CustomizedMenus() {
                 open={open}
                 onClose={handleClose}
             >
-                <Link to="/category/frutos">
+                <LinkStyled to="/category/frutos">
                     <MenuItem onClick={handleClose} disableRipple>
                         {/* <EggIcon /> */}
                         Frutos secos
                     </MenuItem>
-                </Link>
-                <Link to="/category/semillas">
+                </LinkStyled>
+                <LinkStyled to="/category/semillas">
                     <MenuItem onClick={handleClose} disableRipple>
                         {/* <EggIcon /> */}
                         Semillas
                     </MenuItem>
-                </Link>
+                </LinkStyled>
             </StyledMenu>
         </>
     );
