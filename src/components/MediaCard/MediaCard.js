@@ -29,7 +29,7 @@ export default function MediaCard({ item }) {
           ${precio}
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions sx={{justifyContent: 'center'}}>
         <ItemCount itemDescription={item.nombre} itemLimit={item.stock} onAdd={onAdd}></ItemCount>
       </CardActions>
     </Card>
