@@ -6,8 +6,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import CartWidget from '../CartWidget/CartWidget';
 import ProfileWidget from '../ProfileWidget/ProfileWidget';
-import { Link } from 'react-router-dom';
 import CustomizedMenus from '../CustomizedCategorysMenu/CustomizedCategorysMenu';
+import LinkStyled from '../LinkStyled/LinkStyled';
 
 const HeaderNavbar = () => {
     const [actualScrollY, setActualScrollY] = useState()
@@ -85,10 +85,6 @@ const HeaderNavbar = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-    }));
-
-    const LinkStyled = styled(Link)(({ theme }) => ({
-        textDecoration: 'none',
     }));
 
     useEffect(() => {

@@ -2,7 +2,7 @@ import { Button, Container } from '@mui/material';
 import { styled } from '@mui/styles';
 import { Box } from '@mui/system';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import LinkStyled from '../LinkStyled/LinkStyled';
 
 const Item = ({ product }) => {
     const { nombre, precio, imagenMini, stock } = product;
@@ -27,9 +27,9 @@ const Item = ({ product }) => {
                 <p>Precio: {precio}</p>
                 <p>stock: {stock}</p>
                 <Box sx={{ textAlign: 'center' }}>
-                    <Link to={`/item/${product.id}`} >
+                    <LinkStyled to={`/item/${product.id}`} >
                         <Button variant="outlined">Ver detalles</Button>
-                    </Link>
+                    </LinkStyled>
                 </Box>
             </ContainerStyled>
         </>

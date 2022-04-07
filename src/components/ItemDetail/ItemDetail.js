@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MediaCard from '../MediaCard/MediaCard';
 
 function ItemDetail({ item }) {
-    item.onAdd = () => {
-        alert('Producto cargado')
+    const [itemStored, setItemStored] = useState({});
+
+    item.onAdd = (count) => {
+        item.quantity = count;
+        setItemStored(item);
+        
+        alert(`Producto ${item.nombre} cargado con cantidad: ${item.quantity}`);
     }
 
     return (

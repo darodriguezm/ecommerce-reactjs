@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import LinkStyled from '../LinkStyled/LinkStyled';
 
 export default function ItemCount(props) {
     const { itemDescription, itemLimit, onAdd } = props;
@@ -19,7 +20,7 @@ export default function ItemCount(props) {
     }
 
     const callOnAdd = () => {
-        onAdd(count, itemDescription)
+        onAdd(count)
     }
 
     const BlockWrapper = styled('div')(({ theme }) => ({
@@ -31,14 +32,11 @@ export default function ItemCount(props) {
         flexGrow: 1,
         flexDirection: 'column',
         flexWrap: 'wrap',
-        // border: '1px solid #99f',
         boxSizing: 'border-box',
         padding: 3,
-        // width: 250,
         background: '#FFF',
         color: '#000',
         fontSize: '12px',
-        //boxShadow: '2px 2px 5px 1px rgba(0,0,0,0.36)',
         margin: 3
     }))
 
@@ -65,7 +63,9 @@ export default function ItemCount(props) {
                     <DisplayCounter>{count}</DisplayCounter>
                     <Button variant='text' onClick={addItemCount}>+</Button>
                 </IteratorContainer>
-                <Button variant='contained' size="small" disabled={itemLimit <= 0} onClick={callOnAdd}>Agregar al carrito</Button>
+                <LinkStyled to="/cart">
+                    <Button variant='contained' size="small" disabled={itemLimit <= 0} onClick={callOnAdd}>Agregar al carrito</Button>
+                </LinkStyled>
             </ItemCountContainer>
         </BlockWrapper>
     )
