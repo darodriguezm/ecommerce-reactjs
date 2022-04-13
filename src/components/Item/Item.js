@@ -21,7 +21,7 @@ const Item = ({ product }) => {
         <>
             <ContainerStyled>
                 <Box sx={{ textAlign: 'center' }}>
-                    <img src={imagenMini} alt={nombre} />
+                    <img src={`/assets/img/productos/${imagenMini}`} alt={nombre} />
                 </Box>
                 <h3>{nombre}</h3>
                 <p>Precio: {precio}</p>

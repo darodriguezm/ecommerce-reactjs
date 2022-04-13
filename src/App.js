@@ -6,6 +6,7 @@ import topImage from './assets/img/topImage.png';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartProvider } from './context/CartConext';
+import Cart from './components/Cart/Cart';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
             <Route path="/" element={<ItemListContainer greeting="Lista de productos" />} />
             <Route path="/category/:id" element={<ItemListContainer greeting="Categoría" />} />
             <Route path="/item/:id" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<></>}></Route>
+            <Route path="/cart" element={<Cart />}></Route>
             <Route path="*" element={<h1>Error 404</h1>} />
           </Routes>
         </CartProvider>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,9 +8,11 @@ import CartWidget from '../CartWidget/CartWidget';
 import ProfileWidget from '../ProfileWidget/ProfileWidget';
 import CustomizedMenus from '../CustomizedCategorysMenu/CustomizedCategorysMenu';
 import LinkStyled from '../LinkStyled/LinkStyled';
+import LocalCartContext from '../../context/CartConext';
 
 const HeaderNavbar = () => {
-    const [actualScrollY, setActualScrollY] = useState()
+    const [actualScrollY, setActualScrollY] = useState();
+    const { products } = useContext(LocalCartContext);
     const menuItems = [
         {
             caption: "Productos",
@@ -127,7 +129,7 @@ const HeaderNavbar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
-                <CartWidget badgeContent={2} />
+                <CartWidget badgeContent={products.length}/>
                 <ProfileWidget badgeContent={4} />
             </Box>
         </Box >

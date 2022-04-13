@@ -1,22 +1,38 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import mockData from '../../assets/data/products.json';
+import { doc, getDoc } from 'firebase/firestore';
+import db from '../../firebaseConfig';
 
 function ItemDetailContainer() {
     const [item, setItem] = useState({});
     const [empty, setEmpty] = useState(true);
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
-        setItem(mockData.find( (data) => {
-            return data.id === id;
-        }));
-
-        setEmpty(false);
+        const getProduct = async () => {
+            const docRef = doc(db, 'productos', id);
+            const docSnap = await getDoc(docRef);
+    
+            if (docSnap.exists()){
+                let product = docSnap.data();
+                product.id = docSnap.id;
+    
+                return product;
+    
+            } else {
+                Navigate('/error404');
+            }
+        }
+        
+        getProduct().then((response) => {
+            setItem(response)
+            setEmpty(false);
+        
+        }).catch((error) => console.error(error));
 
     }, [id])
-    
+
     return (
         !empty && <ItemDetail item={item} />
     )

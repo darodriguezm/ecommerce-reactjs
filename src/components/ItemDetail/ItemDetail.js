@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import MediaCard from '../MediaCard/MediaCard';
+import LocalCartContext from '../../context/CartConext';
 
 function ItemDetail({ item }) {
-    const [itemStored, setItemStored] = useState({});
+    const { addProductToCart } = useContext(LocalCartContext);
 
     item.onAdd = (count) => {
-        item.quantity = count;
-        setItemStored(item);
-        
-        alert(`Producto ${item.nombre} cargado con cantidad: ${item.quantity}`);
+        addProductToCart(item, count);
     }
 
     return (

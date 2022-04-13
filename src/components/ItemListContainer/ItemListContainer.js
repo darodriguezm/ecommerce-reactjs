@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import FlexColumn from '../FlexColumn/FlexColumn';
-import mockData from '../../assets/data/products.json';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+import db from '../../firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
@@ -15,13 +16,18 @@ const ItemListContainer = ({ greeting }) => {
     useEffect(() => {
         setLoaded(false);
 
-        const getData = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    return resolve(mockData);
-                }, 2000);
+        const getData = async () => {
+            const itemCollection = collection(db, 'productos');
+            const productosSnapshot = await getDocs(itemCollection);
+            const productList = productosSnapshot.docs.map((doc) => {
+                let product = doc.data();
+                product.id = doc.id;
+
+                return product;
             });
-        };
+
+            return productList;
+        }
 
         getData()
             .then((response) => {

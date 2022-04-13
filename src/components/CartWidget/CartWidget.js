@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import Tooltip from '@mui/material/Tooltip';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
+import { Link } from 'react-router-dom';
 
 export default function CartWidget(props) {
     const { badgeContent } = props;
@@ -13,10 +14,12 @@ export default function CartWidget(props) {
     }))
 
     return (
-        <Tooltip title="Carrito" arrow>
-            <StyledBadge badgeContent={badgeContent} color="primary">
-                <AddShoppingCart color="action" />
-            </StyledBadge>
-        </Tooltip>
+        <Link to="/cart">
+            <Tooltip title="Carrito" arrow>
+                <StyledBadge badgeContent={badgeContent} color="primary">
+                    <AddShoppingCart color="action" />
+                </StyledBadge>
+            </Tooltip>
+        </Link>
     )
 }

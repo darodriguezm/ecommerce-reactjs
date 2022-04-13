@@ -15,7 +15,7 @@ export default function MediaCard({ item }) {
       <CardMedia
         component="img"
         height="140"
-        image={imagenesLg[0]}
+        image={`/assets/img/productos/${imagenesLg[0]}`}
         alt="green iguana"
       />
       <CardContent>
