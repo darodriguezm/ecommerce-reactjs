@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import LinkStyled from '../LinkStyled/LinkStyled';
 
 export default function ItemCount(props) {
     const { itemDescription, itemLimit, onAdd } = props;
@@ -63,9 +62,7 @@ export default function ItemCount(props) {
                     <DisplayCounter>{count}</DisplayCounter>
                     <Button variant='text' onClick={addItemCount}>+</Button>
                 </IteratorContainer>
-                <LinkStyled to="/cart">
-                    <Button variant='contained' size="small" disabled={itemLimit <= 0} onClick={callOnAdd}>Agregar al carrito</Button>
-                </LinkStyled>
+                <Button variant='contained' size="small" disabled={itemLimit <= 0} onClick={callOnAdd}>Agregar al carrito</Button>
             </ItemCountContainer>
         </BlockWrapper>
     )

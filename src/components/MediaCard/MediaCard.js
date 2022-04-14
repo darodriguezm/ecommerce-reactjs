@@ -1,14 +1,22 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-// import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ItemCount from '../ItemCount/ItemCount';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
 
 export default function MediaCard({ item }) {
   const { nombre, imagenesLg, descripcion, precio, onAdd } = item;
+  const [itemAgregado, setItemAgregado] = useState(false);
+  const navigate = useNavigate();
+
+  const agregarItem = (count) => {
+    setItemAgregado(true);
+    onAdd(count);
+  }
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -29,8 +37,13 @@ export default function MediaCard({ item }) {
           ${precio}
         </Typography>
       </CardContent>
-      <CardActions sx={{justifyContent: 'center'}}>
-        <ItemCount itemDescription={item.nombre} itemLimit={item.stock} onAdd={onAdd}></ItemCount>
+      <CardActions sx={{ justifyContent: 'center' }}>
+        {
+          itemAgregado ?
+            <Button variant='contained' onClick={() => navigate('/cart')}>Finalizar compra</Button>
+            :
+            <ItemCount itemDescription={item.nombre} itemLimit={item.stock} onAdd={agregarItem}/>
+        }
       </CardActions>
     </Card>
   );

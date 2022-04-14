@@ -129,8 +129,8 @@ const HeaderNavbar = () => {
                         inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
-                <CartWidget badgeContent={products.length}/>
-                <ProfileWidget badgeContent={4} />
+                <CartWidget badgeContent={products.reduce((previo, actual) => previo + actual.quantity, 0)}/>
+                <ProfileWidget />
             </Box>
         </Box >
     );
