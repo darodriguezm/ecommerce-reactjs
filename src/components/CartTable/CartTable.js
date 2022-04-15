@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Button, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './CartTable.css';
 

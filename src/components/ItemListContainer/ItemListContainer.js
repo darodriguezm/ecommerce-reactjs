@@ -6,7 +6,7 @@ import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import db from '../../firebaseConfig';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 
 const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([]);
@@ -18,8 +18,19 @@ const ItemListContainer = ({ greeting }) => {
 
         const getData = async () => {
             const itemCollection = collection(db, 'productos');
-            const productosSnapshot = await getDocs(itemCollection);
-            const productList = productosSnapshot.docs.map((doc) => {
+            let productList;
+            let productosSnapshot;
+
+            if (id) {
+                const itemsFiltred = query(itemCollection, where("categoria", "==", id));
+                productosSnapshot = await getDocs(itemsFiltred);
+
+            } else {
+                productosSnapshot = await getDocs(itemCollection);
+                
+            }
+
+            productList = productosSnapshot.docs.map((doc) => {
                 let product = doc.data();
                 product.id = doc.id;
 
