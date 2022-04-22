@@ -1,0 +1,49 @@
+.ContainerGralLayout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.SubContainerLayout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 640px;
+}
+
+.FichaLayout {
+}
+
+.CarouselLayout {
+    width: 640px;
+    height: 400px;
+}
+
+.ItemDetailTitulo {
+    color: #FECB3E;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.ItemDetalles {
+    font-size: 0.8rem;
+    /* max-width: 45vw; */
+}
+
+.ItemPrecio {
+    color: #CF6160;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.ItemStock {
+    color: #CF6160;
+    font-size: 1rem;
+}

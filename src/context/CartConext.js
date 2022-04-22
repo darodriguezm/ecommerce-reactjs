@@ -28,11 +28,19 @@ const CartProvider = ({ children }) => {
     }
 
     const clear = () => {
-        setProducts({});
+        setProducts([]);
     }
 
     const isInCart = (id) => {
         return products.some((product) => product.id === id);
+    }
+
+    const getMontoTotal = () => {
+        return products.reduce((previo, actual) => previo + (actual.precio * actual.quantity), 0);
+    }
+
+    const getCantidadTotal = () => {
+        return products.reduce((previo, actual) => previo + actual.quantity, 0);
     }
 
     const data = {
@@ -40,7 +48,9 @@ const CartProvider = ({ children }) => {
         addProductToCart,
         removeItem,
         clear,
-        isInCart
+        isInCart,
+        getMontoTotal,
+        getCantidadTotal
     }
 
     return (

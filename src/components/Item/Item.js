@@ -1,37 +1,33 @@
-import { Button, Container } from '@mui/material';
-import { styled } from '@mui/styles';
+import { Button, Paper } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import LinkStyled from '../LinkStyled/LinkStyled';
+import './Item.css';
+import {formatearSeparadorDeMiles} from '../../assets/libs/utiles';
+import ButtonStyled from '../ButtonStyled/ButtonStyled';
 
 const Item = ({ product }) => {
     const { nombre, precio, imagenMini, stock } = product;
-
-    const ContainerStyled = styled(Container)((theme) => ({
-        backgroundColor: 'white',
-        marginLeft: 4,
-        marginRight: 4,
-        paddingTop: 5,
-        color: 'maroon',
-        border: '1px solid rgb(200,200,200)',
-        width: '300px'
-    }));
+    const [pointerOver, setPointerOver] = useState(false);
 
     return (
         <>
-            <ContainerStyled>
-                <Box sx={{ textAlign: 'center' }}>
-                    <img src={`/assets/img/productos/${imagenMini}`} alt={nombre} />
-                </Box>
-                <h3>{nombre}</h3>
-                <p>Precio: {precio}</p>
-                <p>stock: {stock}</p>
-                <Box sx={{ textAlign: 'center' }}>
+            <Paper onPointerOver={ () => setPointerOver(true) } onPointerLeave={ () => setPointerOver(false) } elevation={pointerOver ? 4 : 0} className="ItemContainer">
+                <div>
+                    <img src={`/assets/img/productos/${imagenMini}`} alt={nombre} className="ItemImagen" />
+                </div>
+                <span className="ItemTitulo">{nombre}</span>
+                <p className='ItemStock'>stock: {stock}</p>
+                <p>Precio: ${formatearSeparadorDeMiles(precio)}</p>
+                <Box sx={{ justifyContent: 'center' }}>
                     <LinkStyled to={`/item/${product.id}`} >
+                    <ButtonStyled>
                         <Button variant="outlined">Ver detalles</Button>
+                    </ButtonStyled>
+
                     </LinkStyled>
                 </Box>
-            </ContainerStyled>
+            </Paper>
         </>
     );
 }

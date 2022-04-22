@@ -52,10 +52,12 @@ const ItemListContainer = ({ greeting }) => {
     const InternalContainer = styled('div')(({ theme }) => ({
         display: 'inherit',
         //background: 'linear-gradient(90deg, rgba(245,217,187,1) 0%, rgba(255,255,255,1) 29%, rgba(255,255,255,1) 83%, rgba(245,217,187,1) 100%);',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         color: '#000',
         boxSizing: 'content-box',
-        paddingBottom: 5
+        paddingBottom: 5,
+        justifyContent: 'space-around',
+        flexWrap: 'wrap'
     }))
 
     return (
@@ -67,7 +69,7 @@ const ItemListContainer = ({ greeting }) => {
                 {
                     loaded ?
                         <ItemList products={products} /> :
-                        <CircularProgress />
+                        <CircularProgress color="success" />
                 }
             </InternalContainer>
         </FlexColumn>

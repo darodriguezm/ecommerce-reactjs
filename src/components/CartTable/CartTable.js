@@ -11,6 +11,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import './CartTable.css';
+import { formatearSeparadorDeMiles } from '../../assets/libs/utiles';
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -57,7 +59,7 @@ export default function CustomizedTables({ products, onRemove }) {
                                 <StyledTableCell align="right">{product.categoria}</StyledTableCell>
                                 <StyledTableCell align="right">{product.precio}</StyledTableCell>
                                 <StyledTableCell align="right">{product.quantity}</StyledTableCell>
-                                <StyledTableCell align="right">{product.quantity * product.precio}</StyledTableCell>
+                                <StyledTableCell align="right">$ {formatearSeparadorDeMiles(product.quantity * product.precio)}</StyledTableCell>
                                 <StyledTableCell align="right" onClick={() => { onRemove(product.id) }}>{
                                     <Tooltip title="Eliminar" arrow>
                                         <DeleteIcon className="cursorPointer" />
@@ -68,8 +70,8 @@ export default function CustomizedTables({ products, onRemove }) {
                         <TableRow>
                             <TableCell colSpan={4} />
                             <TableCell colSpan={1} className="boldFont">Subtotal</TableCell>
-                            <TableCell align="right">{
-                                products.reduce((previo, actual) => previo + (actual.precio * actual.quantity), 0)
+                            <TableCell align="right">$ {
+                                formatearSeparadorDeMiles(products.reduce((previo, actual) => previo + (actual.precio * actual.quantity), 0))
                             }</TableCell>
                         </TableRow>
                     </TableBody>

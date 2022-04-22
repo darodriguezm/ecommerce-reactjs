@@ -1,0 +1,12 @@
+.FooterElementsContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: peru;
+    height: 50px;
+    align-items: center;
+}
+
+.FooterElementsContainer span{
+    color: white;
+    font-size: 0.8rem;
+}

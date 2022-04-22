@@ -1,0 +1,38 @@
+.ItemTitulo {
+    color: #FECB3E;
+    font-weight: bold;
+}
+
+.ItemImagen {
+    border-radius: 0.5em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.ItemContainer {
+    margin: 1rem;
+    padding: 2rem;
+    text-align: center;
+    min-width: 200px;
+}
+
+.ItemContainer div {
+    display: flex;
+    justify-content: center;
+}
+
+.ItemContainer p {
+    color: #CF6160;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.ItemContainer>p:nth-child(4) {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.ItemStock {
+    font-size: 0.7rem;
+
+}

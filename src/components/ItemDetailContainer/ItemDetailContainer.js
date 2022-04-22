@@ -3,6 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { doc, getDoc } from 'firebase/firestore';
 import db from '../../firebaseConfig';
+import { CircularProgress } from '@mui/material';
 
 function ItemDetailContainer() {
     const [item, setItem] = useState({});
@@ -34,7 +35,9 @@ function ItemDetailContainer() {
     }, [id])
 
     return (
-        !empty && <ItemDetail item={item} />
+        empty ? 
+        <CircularProgress color="success" />
+        : <ItemDetail item={item} />
     )
 }
 
