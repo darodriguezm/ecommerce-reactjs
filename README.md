@@ -5,9 +5,10 @@ Proyecto modelado y desarrollado con React.js de un sitio Ecommerce
 **Para obtener y lanzar el proyecto en ambiente de desarrollo, seguir los siguientes pasos:**
 
 > **prerequisitos**:
-La aplicación web se desarrolló bajo las siguientes versiones
-    nodejs: versión 16.13.1
-    npx: versión 8.1.2
+La aplicación web se desarrolló bajo las siguientes versiones  
+    nodejs: versión 16.13.1  
+    npx: versión 8.1.2  
+    
 
 1. Clonar repositorio con el comando:  
     `git clone https://github.com/darodriguezm/ecommerce-reactjs.git`  
